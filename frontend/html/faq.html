@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donation FAQ</title>
+    <link rel="stylesheet" href="../css/faq.css">
+</head>
+<body>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faq-item">
+            <button class="faq-question">What is Organ Donation?</button>
+            <div class="faq-answer">
+                <p>Organ donation is the entire practice of retrieving a human organ from a living or deceased person, who is referred to as a Donor, and transplanting it into a recipient. The recipient will be a patient who is suffering from organ failure and who will not survive unless she/he receives an organ replacement. The process of recovering organs is called Retrieval.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Why should I become an Organ Donor?</button>
+            <div class="faq-answer">
+                <p>In India, there are over 150,000 people currently in need of kidney transplants. The wait-list for patients with heart and liver failure is growing all the time as well. And each year, thousands of people die while waiting for a transplant, because no suitable donor can be found for them. The need for organ donors has never been greater. Being an organ donor is a generous and worthwhile decision that can be a lifesaver.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is organ donation legal in India?</button>
+            <div class="faq-answer">
+                <p>The primary legislation related to organ donation and transplantation in India, Transplantation of Human Organs Act, was passed in 1994 and is aimed at regulation of removal, storage and transplantation of human organs for therapeutic purposes and for prevention of commercial dealings in human organs.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Does organ donation disfigure the body?</button>
+            <div class="faq-answer">
+                <p>No, organs are retrieved through a single cut, and the body is not disfigured.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Who can be a donor?</button>
+            <div class="faq-answer">
+                <p>All of us can be organ donors, irrespective of age, caste, religion, or medical condition. However, active cancer, active HIV, or infections can prevent donation.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Pledging your organs and becoming an organ donor</button>
+            <div class="faq-answer">
+                <p>If you want to pledge your organs, you can fill out a form on our website<a href="../html/register.html">Click here</a>. Once you register as a donor, your donor card is not a legal entity, but an expression of your wish.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+            question.addEventListener("click", function() {
+                this.nextElementSibling.classList.toggle("show-answer");
+            });
+        });
+    });
+
+    </script>
+
+</body>
+</html>

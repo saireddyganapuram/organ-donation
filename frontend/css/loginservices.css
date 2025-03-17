@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.services-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services-list li {
+    margin: 10px 0;
+}
+
+.services-list a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.services-list a:hover {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donation Registration</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+
+<div class="container">
+    <h1> Organ Donation Registration</h1>
+    <h5>FORM 7 FOR ORGAN OR TISSUE PLEDGING (To be filled by individual of age 18 year or above)</h5>
+    <form  action="../html/success.html" method="GET" >
+        
+        <div class="input-container">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <i class="fas fa-user"></i>
+        </div>
+        
+        <div class="input-container">
+            <input type="number" id="age" name="age" min="18" max="100" placeholder="Age" required>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        
+        <div class="input-container">
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <i class="fas fa-venus-mars"></i>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="aadhaar" name="aadhaar" maxlength="12" pattern="\d{12}" placeholder="Aadhaar Number" required>
+            <i class="fas fa-id-card"></i>
+        </div>
+
+        <div class="input-container">
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="Mobile Number" required>
+            <i class="fas fa-phone"></i>
+        </div>
+
+        <label><i class="fas fa-lungs"></i> Organs to Donate</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="organs[]" value="heart"> Heart</label><br>
+            <label><input type="checkbox" name="organs[]" value="kidneys"> Kidneys</label><br>
+            <label><input type="checkbox" name="organs[]" value="liver"> Liver</label><br>
+            <label><input type="checkbox" name="organs[]" value="lungs"> Lungs</label><br>
+            <label><input type="checkbox" name="organs[]" value="pancreas"> Pancreas</label><br>
+            <label><input type="checkbox" name="organs[]" value="eyes"> Eyes</label><br>
+        </div>
+
+        <div class="selectorganization">
+            <label for="organizationType"><i class="fas fa-hospital"></i> Donating to which organization?</label>
+            <select id="organizationType" name="organizationType" onchange="showOptions()" required>
+                <option value="">Select Organization Type</option>
+                <option value="hospital">Hospital</option>
+                <option value="ngo">NGO</option>
+                <option value="medical_institute">Medical Institute</option>
+            </select>
+
+            <!-- Hospital Options -->
+            <div id="hospitalOptions" style="display:none;">
+                <label for="hospital">Select Hospital</label>
+                <select id="hospital" name="hospital">
+                    <option value="">Select Hospital</option>
+                    <option value="apollo">Apollo Hospital</option>
+                    <option value="fortis">Fortis Hospital</option>
+                    <option value="aiims">AIIMS</option>
+                </select>
+            </div>
+
+            <!-- NGO Options -->
+            <div id="ngoOptions" style="display:none;">
+                <label for="ngo">Select NGO</label>
+                <select id="ngo" name="ngo">
+                    <option value="">Select NGO</option>
+                    <option value="red_cross">Red Cross</option>
+                    <option value="organIndia">Organ India</option>
+                    <option value="donate_life">Donate Life</option>
+                </select>
+            </div>
+
+            <!-- Medical Institute Options -->
+            <div id="medicalInstituteOptions" style="display:none;">
+                <label for="medical_institute">Select Medical Institute</label>
+                <select id="medical_institute" name="medical_institute">
+                    <option value="">Select Medical Institute</option>
+                    <option value="pgimer">PGIMER</option>
+                    <option value="aiims_delhi">AIIMS Delhi</option>
+                    <option value="nimhans">NIMHANS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+            <i class="fas fa-camera"></i>
+        </div>
+
+        <div class="input-container">
+            <input type="file" id="signature" name="signature" accept="image/*" required >
+            <i class="fas fa-signature"></i>
+        </div>
+
+        <label><i class="fas fa-file-contract"></i> Terms & Conditions</label>
+        <a href="learn.html">Learn more </a>
+        <label><input type="checkbox" name="terms and conditions" value="agree"> I agree</label><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    function showOptions() {
+        document.getElementById('hospitalOptions').style.display = 'none';
+        document.getElementById('ngoOptions').style.display = 'none';
+        document.getElementById('medicalInstituteOptions').style.display = 'none';
+        
+        const organizationType = document.getElementById('organizationType').value;
+        
+        if (organizationType === 'hospital') {
+            document.getElementById('hospitalOptions').style.display = 'block';
+        } else if (organizationType === 'ngo') {
+            document.getElementById('ngoOptions').style.display = 'block';
+        } else if (organizationType === 'medical_institute') {
+            document.getElementById('medicalInstituteOptions').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

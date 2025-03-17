@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Organ and Hospitals/NGOs</title>
+    <link rel="stylesheet" href="../css/loginorganselection.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select Organ Type</h1>
+
+        <div class="form-group">
+            <label for="organ">Select Organ</label>
+            <select id="organ" name="organ" onchange="showAvailableOptions()" required>
+                <option value="">Select Organ</option>
+                <option value="heart">Heart</option>
+                <option value="kidneys">Kidneys</option>
+                <option value="liver">Liver</option>
+                <option value="lungs">Lungs</option>
+                <option value="pancreas">Pancreas</option>
+                <option value="eyes">Eyes</option>
+            </select>
+        </div>
+
+        <div id="resultSection" style="display:none;">
+            <h2>Available Hospitals</h2>
+            <ul id="hospitalList" class="options-group"></ul>
+
+            <h2>Available NGOs</h2>
+            <ul id="ngoList" class="options-group"></ul>
+        </div>
+        <div id="goto">
+            <a href="../html/index.html" > <button id="home">Go to Homepage</button></a>
+        </div>
+    </div>
+   
+
+    <script>
+        const organData = {
+            heart: {
+                hospitals: ["Apollo Hospital", "Fortis Hospital", "AIIMS"],
+                ngos: ["Red Cross", "Organ India", "Donate Life"]
+            },
+            kidneys: {
+                hospitals: ["Max Hospital", "Medanta Hospital", "NIMS Hospital"],
+                ngos: ["Organ India", "Donate Life", "Save Organs Foundation"]
+            },
+            liver: {
+                hospitals: ["Apollo Hospital", "Narayana Health", "Osmania Hospital"],
+                ngos: ["Red Cross", "Save Life Foundation", "Donate Life"]
+            },
+            lungs: {
+                hospitals: ["Gandhi Hospital", "AIG Hospital", "Care Hospital"],
+                ngos: ["Organ India", "Donate Life", "Red Cross"]
+            },
+            pancreas: {
+                hospitals: ["Apollo Hospital", "Yashoda Hospital", "Gleneagles"],
+                ngos: ["Donate Life", "Organ India", "Red Cross"]
+            },
+            eyes: {
+                hospitals: ["Agarwals Health", "LV Prasad Hospital", "Centerforsight"],
+                ngos: ["Save Organs Foundation", "Donate Life", "Red Cross"]
+            }
+        };
+
+        function showAvailableOptions() {
+            const organ = document.getElementById('organ').value;
+            const hospitalList = document.getElementById('hospitalList');
+            const ngoList = document.getElementById('ngoList');
+            const resultSection = document.getElementById('resultSection');
+
+            // Clear previous lists
+            hospitalList.innerHTML = '';
+            ngoList.innerHTML = '';
+
+            if (organ) {
+                resultSection.style.display = 'block';
+
+                // Populate hospital list
+                organData[organ].hospitals.forEach(hospital => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = hospital;
+                    hospitalList.appendChild(listItem);
+                });
+
+                // Populate NGO list
+                organData[organ].ngos.forEach(ngo => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = ngo;
+                    ngoList.appendChild(listItem);
+                });
+            } else {
+                resultSection.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
