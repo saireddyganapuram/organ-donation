@@ -6,47 +6,31 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 
 <div class="container">
     <h1>Login</h1>
-    <form id="loginForm" onsubmit="return handleLogin(event)">
+    <form id="loginForm" action="/donors/login" method="post">
         <div class="input-container">
             <i class="fas fa-id-card"></i>
-            <input type="text" id="aadhaar" name="aadhaar" required pattern="\d{12}" maxlength="12" placeholder="Enter your Aadhaar Number">
+            <input type="text" id="aadhaar" name="aadhaar" required pattern="\d{12}" maxlength="12" placeholder="Enter your Aadhaar Number" required>
         </div>
         
         <div class="input-container">
             <i class="fas fa-phone"></i>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter your Phone Number">
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter your Phone Number" required>
         </div>
         
         <div class="input-container">
             <i class="fas fa-key"></i>
-            <input type="text" id="otp" name="otp" required placeholder="Enter OTP">
+            <input type="text" id="otp" name="otp" required placeholder="Enter OTP" required>
         </div>
 
         <button type="submit">Login</button>
     </form>
 </div>
-
-<script>
-    function handleLogin(event) {
-        event.preventDefault(); // Prevent form submission for demonstration
-        const aadhaar = document.getElementById('aadhaar').value;
-        const phone = document.getElementById('phone').value;
-        const otp = document.getElementById('otp').value;
-
-        // Simulate OTP verification (for demonstration)
-        if (aadhaar && phone && otp) {
-            window.location.href = "../html/loginservices.html"; // Redirect to services page
-        } else {
-            alert("Please fill all fields correctly.");
-        }
-    }
-</script>
 
 </body>
 </html>
