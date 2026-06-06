@@ -1,8 +1,7 @@
 const donorModel = require('../models/donorModel')
 const jwt = require("jsonwebtoken")
 const path = require("path")
-const config = require("config")
-const JWT_SECRET = config.get('JWT_SECRET')
+const JWT_SECRET = process.env.JWT_SECRET
 
 
 const loginDonor = async (req, res) => {
